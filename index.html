@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Pawan -  AI/ML web-Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #02060f;
+            color: #fff;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #02060f;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #00ffff, #0080ff);
+            border-radius: 10px;
+        }
+
+        /* Neon Glow Effects */
+        .neon-text {
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #0080ff;
+        }
+
+        .neon-border {
+            border: 2px solid #00ffff;
+            box-shadow: 0 0 10px #00ffff, inset 0 0 10px rgba(0, 255, 255, 0.1);
+        }
+
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(0, 128, 255, 0.3);
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-dark {
+            background: rgba(2, 6, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        /* 3D Effects */
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+
+        .transform-3d {
+            transform-style: preserve-3d;
+        }
+
+        .rotate-y-360 {
+            animation: rotateY 20s linear infinite;
+        }
+
+        @keyframes rotateY {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
+        }
+
+        /* Floating Animation */
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Pulse Animation */
+        .pulse-animation {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #00ffff, #0080ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Particles Background */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Hover Effects */
+        .hover-lift {
+            transition: all 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.3);
+        }
+
+        /* Skill Bubbles */
+        .skill-bubble {
+            animation: bubbleFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes bubbleFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(5deg); }
+            75% { transform: translateY(10px) rotate(-5deg); }
+        }
+
+        /* Social Icon Rings */
+        .social-ring {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid #00ffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-ring::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid #00ffff;
+            animation: ringPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes ringPulse {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.3); opacity: 0; }
+        }
+
+        .social-ring:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+        }
+
+        /* Profile Photo Frame */
+        .profile-frame {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            background: linear-gradient(45deg, #00ffff, #0080ff, #00ffff);
+            background-size: 200% 200%;
+            animation: gradientRotate 3s ease infinite;
+            padding: 5px;
+        }
+
+        @keyframes gradientRotate {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .profile-frame-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #02060f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Navigation Active State */
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00ffff, #0080ff);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading Animation */
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(0, 255, 255, 0.3);
+            border-top-color: #00ffff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ==========================
+           ADDED: Dotted Neon Ring Styles
+           (minimal, safe, and non-invasive)
+           ========================== */
+
+        /* wrapper for the dotted neon ring */
+        .neon-ring {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px; /* small inner padding so ring is visible */
+            box-sizing: border-box;
+            z-index: 2;
+            /* subtle translate animation so ring moves up-down slightly */
+            animation: neonRingFloat 3.2s ease-in-out infinite;
+            will-change: transform;
+        }
+
+        /* smaller variant (used inside small avatar) */
+        .neon-ring.small {
+            padding: 3px;
+        }
+
+        /* dotted neon border created with pseudo-element so it doesn't affect layout */
+        .neon-ring::before{
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 4px dotted rgba(0, 255, 255, 0.9);
+            /* neon glow */
+            box-shadow:
+                0 0 8px rgba(0,255,255,0.20),
+                0 0 18px rgba(0,128,255,0.12),
+                0 0 36px rgba(0,255,255,0.06);
+            pointer-events: none;
+            transition: transform .3s ease, box-shadow .3s ease, opacity .3s ease;
+        }
+
+        /* subtle pulsing of the ring's glow */
+        .neon-ring::after{
+            content: "";
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            filter: blur(12px);
+            opacity: 0.5;
+            background: radial-gradient(circle at center, rgba(0,255,255,0.12), transparent 40%);
+            pointer-events: none;
+        }
+
+        /* image inside ring should remain fully circular and cover the area */
+        .neon-ring img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+            transform-origin: center;
+            transition: transform .45s cubic-bezier(.2,.9,.3,1);
+        }
+
+        /* hover interaction: slightly stronger glow and image scale */
+        .neon-ring:hover::before{
+            box-shadow:
+                0 0 12px rgba(0,255,255,0.30),
+                0 0 28px rgba(0,128,255,0.18),
+                0 0 48px rgba(0,255,255,0.10);
+            transform: scale(1.03);
+        }
+        .neon-ring:hover img{
+            transform: scale(1.03);
+        }
+
+        @keyframes neonRingFloat{
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* responsive tweak so ring doesn't overflow on very small screens */
+        @media (max-width: 420px){
+            .neon-ring { padding: 4px; }
+            .neon-ring::before { border-width: 3px; }
+        }
+
+        /* ---------- Responsive fixes for blog live controls (MERGED) ---------- */
+        /* Added with some specificity and safe overrides to handle inline styles injected by JS */
+
+        /* ensures card controls don't overflow card */
+        #blog .mt-4.border-t {
+          width: 100% !important;
+          box-sizing: border-box !important;
+        }
+
+        /* make the top row wrap when space is low */
+        #blog .mt-4 > div:first-child {
+          display: flex !important;
+          gap: 12px;
+          align-items: center;
+          flex-wrap: wrap !important;
+        }
+
+        /* make like button fixed size and not stretch */
+        #blog .live-like-btn {
+          flex: 0 0 auto !important;
+          min-width: 56px;
+          height: 44px;
+          display: inline-flex !important;
+          align-items: center;
+          justify-content: center;
+          padding: 0 12px;
+          box-sizing: border-box;
+        }
+
+        /* comment form takes remaining space but can wrap on small screens */
+        #blog .live-comment-form {
+          display: flex !important;
+          gap: 8px;
+          align-items: center;
+          flex: 1 1 auto !important;
+          min-width: 220px; /* ensures readable inputs on small */
+          flex-wrap: nowrap;
+        }
+
+        /* inputs inside form: flexible but with sensible min widths */
+        #blog .live-comment-form .comment-name {
+          flex: 0 0 120px !important;
+          min-width: 90px;
+          padding: 8px;
+          border-radius: 6px;
+        }
+
+        #blog .live-comment-form .comment-text {
+          flex: 1 1 auto !important;
+          min-width: 120px;
+          padding: 8px;
+          border-radius: 6px;
+        }
+
+        /* send button fixed width so it doesn't collapse */
+        #blog .live-comment-form button {
+          flex: 0 0 auto !important;
+          min-width: 64px;
+          padding: 8px 12px;
+        }
+
+        /* comments list full width under controls */
+        #blog .live-comments-list {
+          width: 100% !important;
+          box-sizing: border-box;
+          margin-top: 10px;
+        }
+
+        /* small screens: stack controls vertically for best spacing */
+        @media (max-width: 640px) {
+          #blog .mt-4 > div:first-child {
+            flex-direction: column !important;
+            align-items: stretch !important;
+          }
+          #blog .live-like-btn {
+            margin-right: 0;
+            width: 56px;
+          }
+          #blog .live-comment-form {
+            flex-direction: row; /* keep row so name + text + send stay inline */
+            gap: 8px;
+            align-items: center;
+            flex-wrap: nowrap;
+          }
+          /* make inputs slightly smaller on tiny screens */
+          #blog .live-comment-form .comment-name { flex-basis: 100px !important; }
+          #blog .live-comment-form .comment-text { min-width: 90px !important; }
+        }
+
+        /* if JS injects inline display:block on hidden items, ensure gallery filtering transitions still smooth */
+        .gallery-item {
+          transition: opacity 0.28s ease, transform 0.28s ease;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Particles Canvas -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full glass-dark z-50 px-6 py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold gradient-text">Pawan kr singh</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link hover:text-cyan-400 transition-colors">Home</a>
+                <a href="#projects" class="nav-link hover:text-cyan-400 transition-colors">Projects</a>
+                <a href="#gallery" class="nav-link hover:text-cyan-400 transition-colors">Gallery</a>
+                <a href="#skills" class="nav-link hover:text-cyan-400 transition-colors">Skills</a>
+                <a href="#certificates" class="nav-link hover:text-cyan-400 transition-colors">Certificates</a>
+                <a href="#blog" class="nav-link hover:text-cyan-400 transition-colors">Blog</a>
+                <a href="#resume" class="nav-link hover:text-cyan-400 transition-colors">Resume</a>
+                <a href="#about" class="nav-link hover:text-cyan-400 transition-colors">About</a>
+                <a href="#contact" class="nav-link hover:text-cyan-400 transition-colors">Contact</a>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden text-cyan-400">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="container mx-auto px-6 py-20">
+            <div class="flex flex-col md:flex-row items-center justify-center gap-12">
+                <div class="text-center md:text-left">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-4 neon-text">
+                        Pawan
+                    </h1>
+                    <p class="text-2xl md:text-3xl gradient-text mb-6">
+                        Web developer• AI/ML
+                    </p>
+                    <p class="text-gray-400 mb-8 max-w-lg">
+                        Crafting intelligent solutions with cutting-edge technologies. 
+                        Specializing in machine learning, web development, and innovative AI applications.
+                    </p>
+                    <div class="flex gap-4 justify-center md:justify-start">
+                        <button class="px-8 py-3 neon-border rounded-full hover:bg-cyan-900/30 transition-all">
+                            View Projects
+                        </button>
+                        <button class="px-8 py-3 glass rounded-full hover:bg-white/10 transition-all">
+                            Download CV
+                        </button>
+                    </div>
+                </div>
+                <div class="profile-frame float-animation">
+                    <div class="profile-frame-inner">
+                        <!-- Wrapped image with neon dotted ring (only addition) -->
+                        <div class="neon-ring" style="width:220px;height:220px;">
+                            <img src="Profile.jpeg" alt="Pawan" class="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 neon-text">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass rounded-2xl p-6 hover-lift perspective-1000">
+                    <div class="transform-3d hover:rotate-y-10 transition-transform">
+                        <img src="pro.png" alt="Project" class="w-full h-48 object-cover rounded-xl mb-4">
+                        <h3 class="text-2xl font-bold text-cyan-400 mb-2">Course Related</h3>
+                        <p class="text-gray-400 mb-4"> Own website for enjoy</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 glass rounded-full text-xs">Python</span>
+                            <span class="px-3 py-1 glass rounded-full text-xs">HTML</span>
+                            <span class="px-3 py-1 glass rounded-full text-xs">CSS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass rounded-2xl p-6 hover-lift perspective-1000">
+                    <div class="transform-3d hover:rotate-y-10 transition-transform">
+                        <img src="pu.jpg" alt="Project" class="w-full h-48 object-cover rounded-xl mb-4">
+                        <h3 class="text-2xl font-bold text-cyan-400 mb-2">Processing Platform</h3>
+                        <p class="text-gray-400 mb-4">Processing</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 glass rounded-full text-xs">React</span>
+                            <span class="px-3 py-1 glass rounded-full text-xs">D3.js</span>
+                            <span class="px-3 py-1 glass rounded-full text-xs">Node.js</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass rounded-2xl p-6 hover-lift perspective-1000">
+                    <div class="transform-3d hover:rotate-y-10 transition-transform">
+                        <img src="https://picsum.photos/seed/project3/400/250" alt="Project" class="w-full h-48 object-cover rounded-xl mb-4">
+                        <h3 class="text-2xl font-bold text-cyan-400 mb-2">E-Commerce AI In processing</h3>
+                        <p class="text-gray-400 mb-4">Smart recommendation engine with personalized shopping experience</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 glass rounded-full text-xs">PyTorch</span>
+                            <span class="px-3 py-1 glass rounded-full text-xs">FastAPI</span>
+                            <span class="px-3 py-1 glass rounded-full text-xs">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 neon-text">Gallery</h2>
+            <div class="flex justify-center gap-4 mb-8">
+                <button class="filter-btn px-6 py-2 neon-border rounded-full hover:bg-cyan-900/30 transition-all" data-filter="all">All</button>
+                <button class="filter-btn px-6 py-2 glass rounded-full hover:bg-white/10 transition-all" data-filter="personal">Personal</button>
+                <button class="filter-btn px-6 py-2 glass rounded-full hover:bg-white/10 transition-all" data-filter="Enjoy">Enjoy</button>
+                <button class="filter-btn px-6 py-2 glass rounded-full hover:bg-white/10 transition-all" data-filter="achievements">Achievements</button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="gallery-item personal glass rounded-2xl overflow-hidden hover-lift">
+                    <img src="col.jpeg" alt="Gallery" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-cyan-400">College Pic</h3>
+                    </div>
+                </div>
+                <div class="gallery-item projects glass rounded-2xl overflow-hidden hover-lift">
+                    <img src="b.jpeg" alt="Gallery" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-cyan-400">AT HoMe</h3>
+                    </div>
+                </div>
+                <div class="gallery-item achievements glass rounded-2xl overflow-hidden hover-lift">
+                    <img src="award.jpeg" alt="Gallery" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-cyan-400">Award Ceremony</h3>
+                    </div>
+                </div>
+                <div class="gallery-item personal glass rounded-2xl overflow-hidden hover-lift">
+                    <img src="ff.jpeg" alt="Gallery" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-cyan-400">With friend</h3>
+                    </div>
+                </div>
+                <div class="gallery-item Enjoy glass rounded-2xl overflow-hidden hover-lift">
+                    <img src="of.jpeg" alt="Gallery" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-cyan-400">In BHOPAL</h3>
+                    </div>
+                </div>
+                <div class="gallery-item personal glass rounded-2xl overflow-hidden hover-lift">
+                    <img src="my.jpeg" alt="Gallery" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-cyan-400">MANAV SANGRAHALAY</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 neon-text">Skills</h2>
+            <div class="flex flex-wrap justify-center gap-8">
+                <div class="skill-bubble w-24 h-24 neon-border rounded-full flex items-center justify-center hover-lift">
+                    <i class="fab fa-python text-3xl text-cyan-400"></i>
+                </div>
+                <div class="skill-bubble w-24 h-24 neon-border rounded-full flex items-center justify-center hover-lift" style="animation-delay: 0.2s">
+                    <i class="fab fa-react text-3xl text-cyan-400"></i>
+                </div>
+                <div class="skill-bubble w-24 h-24 neon-border rounded-full flex items-center justify-center hover-lift" style="animation-delay: 0.4s">
+                    <i class="fab fa-node-js text-3xl text-cyan-400"></i>
+                </div>
+                <div class="skill-bubble w-24 h-24 neon-border rounded-full flex items-center justify-center hover-lift" style="animation-delay: 0.6s">
+                    <i class="fab fa-docker text-3xl text-cyan-400"></i>
+                </div>
+                <div class="skill-bubble w-24 h-24 neon-border rounded-full flex items-center justify-center hover-lift" style="animation-delay: 0.8s">
+                    <i class="fab fa-aws text-3xl text-cyan-400"></i>
+                </div>
+                <div class="skill-bubble w-24 h-24 neon-border rounded-full flex items-center justify-center hover-lift" style="animation-delay: 1s">
+                    <i class="fab fa-git-alt text-3xl text-cyan-400"></i>
+                </div>
+                <div class="skill-bubble w-24 h-24 neon-border rounded-full flex items-center justify-center hover-lift" style="animation-delay: 1.2s">
+                    <i class="fas fa-database text-3xl text-cyan-400"></i>
+                </div>
+                <div class="skill-bubble w-24 h-24 neon-border rounded-full flex items-center justify-center hover-lift" style="animation-delay: 1.4s">
+                    <i class="fas fa-brain text-3xl text-cyan-400"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 neon-text">Certificates</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass rounded-2xl p-6 hover-lift">
+                    <div class="neon-border rounded-xl p-4 mb-4">
+                        <img src="ADCA.jpg" alt="Certificate" class="w-full h-40 object-contain">
+                    </div>
+                    <h3 class="text-xl font-bold text-cyan-400 mb-2">ADCA </h3>
+                    <p class="text-gray-400 mb-4">WIZARD</p>
+                    <button class="w-full px-4 py-2 neon-border rounded-lg hover:bg-cyan-900/30 transition-all">
+                        View Certificate
+                    </button>
+                </div>
+                <div class="glass rounded-2xl p-6 hover-lift">
+                    <div class="neon-border rounded-xl p-4 mb-4">
+                        <img src="CCC.jpg" alt="Certificate" class="w-full h-40 object-contain">
+                    </div>
+                    <h3 class="text-xl font-bold text-cyan-400 mb-2">CCC</h3>
+                    <p class="text-gray-400 mb-4">NIELIT</p>
+                    <button class="w-full px-4 py-2 neon-border rounded-lg hover:bg-cyan-900/30 transition-all">
+                        View Certificate
+                    </button>
+                </div>
+                <div class="glass rounded-2xl p-6 hover-lift">
+                    <div class="neon-border rounded-xl p-4 mb-4">
+                        <img src="DCA.jpg" alt="Certificate" class="w-full h-40 object-contain">
+                    </div>
+                    <h3 class="text-xl font-bold text-cyan-400 mb-2">DCA</h3>
+                    <p class="text-gray-400 mb-4">WIZARD TECH</p>
+                    <button class="w-full px-4 py-2 neon-border rounded-lg hover:bg-cyan-900/30 transition-all">
+                        View Certificate
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 neon-text">Blog</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass rounded-2xl p-6 hover-lift">
+                    <h3 class="text-2xl font-bold text-cyan-400 mb-3">Building AI-Powered Applications</h3>
+                    <p class="text-gray-400 mb-4">Exploring the latest trends in artificial intelligence and how to integrate them into modern applications...</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-gray-500">5 min read</span>
+                        <!-- controls will be injected here by JS -->
+                    </div>
+                </div>
+                <div class="glass rounded-2xl p-6 hover-lift">
+                    <h3 class="text-2xl font-bold text-cyan-400 mb-3">The Future of Web Development</h3>
+                    <p class="text-gray-400 mb-4">How emerging technologies are shaping the next generation of web applications and user experiences...</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-gray-500">7 min read</span>
+                        <!-- controls will be injected here by JS -->
+                    </div>
+                </div>
+                <div class="glass rounded-2xl p-6 hover-lift">
+                    <h3 class="text-2xl font-bold text-cyan-400 mb-3">Machine Learning in Production</h3>
+                    <p class="text-gray-400 mb-4">Best practices for deploying and maintaining machine learning models in real-world scenarios...</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-gray-500">10 min read</span>
+                        <!-- controls will be injected here by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 neon-text">Resume</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-1">
+                    <div class="glass rounded-2xl p-6 sticky top-24">
+                        <div class="text-center mb-6">
+                            <div class="w-32 h-32 mx-auto mb-4 neon-border rounded-full p-2">
+                                <!-- small avatar wrapped to add dotted neon ring (only addition) -->
+                                <div class="neon-ring small" style="width:100%;height:100%;">
+                                    <img src="Profile.jpeg" alt="Pawan" class="w-full h-full rounded-full object-cover">
+                                </div>
+                            </div>
+                            <h3 class="text-2xl font-bold gradient-text">Pawan</h3>
+                            <p class="text-cyan-400"> AI/ML Developer</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-envelope text-cyan-400"></i>
+                                <span>pawankushwaha1515@gmail.com</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-phone text-cyan-400"></i>
+                                <span>+91 9296139955</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-map-marker-alt text-cyan-400"></i>
+                                <span>Gopalganj India</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fab fa-linkedin text-cyan-400"></i>
+                                <span>linkedin.com/in/pawan</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fab fa-github text-cyan-400"></i>
+                                <span>github.com/pawan</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="text-2xl font-bold text-cyan-400 mb-4">Professional Summary</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            Passionate Web Developer building scalable web applications 
+                            and implementing machine learning solutions. Expertise in Python, JavaScript, React, Node.js, 
+                            and cloud technologies. Proven track record of delivering high-quality solutions that drive 
+                            business growth and enhance user experience.
+                        </p>
+                    </div>
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="text-2xl font-bold text-cyan-400 mb-4">Education</h3>
+                        <div class="space-y-4">
+                            <div class="border-l-2 border-cyan-400 pl-4">
+                                <h4 class="text-xl font-semibold">B.Tech In AI&ML</h4>
+                                <p class="text-gray-400">Sirt Bhopal</p>
+                                <p class="text-gray-300">Specialization in Machine Learning and Artificial Intelligence</p>
+                            </div>
+                            <div class="border-l-2 border-cyan-400 pl-4">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="text-2xl font-bold text-cyan-400 mb-4">Higher Education </h3>
+                        <div class="space-y-4">
+                            <div class="border-l-2 border-cyan-400 pl-4">
+                                <h4 class="text-xl font-semibold">10TH</h4>
+                                
+                                <ul class="text-gray-300 list-disc list-inside mt-2">
+                                    <li>77.4%</li>
+                                    
+                                </ul>
+                            </div>
+                            <div class="border-l-2 border-cyan-400 pl-4">
+                                <h4 class="text-xl font-semibold">Intermidiate</h4>
+                                <ul class="text-gray-300 list-disc list-inside mt-2">
+                                    <li>70.2%</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 neon-text">About Me</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="glass rounded-2xl p-8">
+                    <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                        Hello! I'm <span class="gradient-text font-bold">Pawan</span>, a passionate <span class="text-cyan-400 font-semibold">Web- Developer</span> 
+                        with a deep love for <span class="text-cyan-400 font-semibold">Artificial Intelligence</span> and <span class="text-cyan-400 font-semibold">Machine Learning</span>. 
+                        My journey in tech began with a curiosity about how things work and evolved into a career focused on 
+                        building intelligent solutions that make a real difference.
+                    </p>
+                    <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                        With expertise spanning from frontend frameworks like <span class="text-cyan-400 font-semibold">React</span> and <span class="text-cyan-400 font-semibold">Vue.js</span> 
+                        to backend technologies including <span class="text-cyan-400 font-semibold">Node.js</span>, <span class="text-cyan-400 font-semibold">Python</span>, and 
+                        <span class="text-cyan-400 font-semibold">cloud platforms</span>, I bring a holistic approach to software development. My specialization in 
+                        <span class="text-cyan-400 font-semibold">machine learning</span> allows me to create applications that not only function beautifully 
+                        but also learn and adapt to user needs.
+                    </p>
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        When I'm not coding, you'll find me exploring the latest <span class="text-cyan-400 font-semibold">AI research papers</span>, 
+                        contributing to <span class="text-cyan-400 font-semibold">open-source projects</span>, or sharing knowledge through 
+                        <span class="text-cyan-400 font-semibold">tech talks and workshops</span>. I believe in continuous learning and staying at the 
+                        forefront of technology to deliver innovative solutions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 neon-text">Let's Connect & Collaborate</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="glass rounded-2xl p-8">
+          <div class="flex flex-wrap justify-center gap-6 mb-8">
+
+    <a href="#" class="social-ring" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-github text-2xl text-cyan-400"></i>
+    </a>
+
+    <a href="https://www.linkedin.com/in/pawan-kr-35786a326?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
+       class="social-ring" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-linkedin text-2xl text-cyan-400"></i>
+    </a>
+
+    <a href="mailto:pawankushwaha1515@gmail.com" 
+       class="social-ring" aria-label="Email" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-envelope text-2xl text-cyan-400"></i>
+    </a>
+
+    <a href="#" class="social-ring" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp text-2xl text-cyan-400"></i>
+    </a>
+
+    <a href="https://www.instagram.com/pawan_maurya_s?igsh=eWRkNXJkaHhsYWh3" 
+       class="social-ring" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-instagram text-2xl text-cyan-400"></i>
+    </a>
+
+    <a href="#" class="social-ring" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-facebook text-2xl text-cyan-400"></i>
+    </a>
+
+</div>
+
+                    </div>
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <input type="text" placeholder="Your Name" 
+                                    class="w-full px-4 py-3 glass rounded-lg bg-transparent border border-cyan-400/30 focus:border-cyan-400 focus:outline-none transition-colors">
+                            </div>
+                            <div>
+                                <input type="email" placeholder="Your Email" 
+                                    class="w-full px-4 py-3 glass rounded-lg bg-transparent border border-cyan-400/30 focus:border-cyan-400 focus:outline-none transition-colors">
+                            </div>
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Subject" 
+                                class="w-full px-4 py-3 glass rounded-lg bg-transparent border border-cyan-400/30 focus:border-cyan-400 focus:outline-none transition-colors">
+                        </div>
+                        <div>
+                            <textarea placeholder="Your Message" rows="5" 
+                                class="w-full px-4 py-3 glass rounded-lg bg-transparent border border-cyan-400/30 focus:border-cyan-400 focus:outline-none transition-colors resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-8 py-3 neon-border rounded-lg hover:bg-cyan-900/30 transition-all font-semibold">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-cyan-400/20">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400">© 2025 Pawan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Existing scripts (particles, gallery, observers etc.) -->
+    <script>
+        // Particles Background
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+        const particleCount = 100;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+                this.opacity = Math.random() * 0.5 + 0.2;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+
+            draw() {
+                ctx.fillStyle = `rgba(0, 255, 255, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+
+        initParticles();
+        animateParticles();
+
+        // Resize canvas on window resize
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Gallery Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
+                
+                // Update active button
+                filterBtns.forEach(b => {
+                    b.classList.remove('neon-border');
+                    b.classList.add('glass');
+                });
+                btn.classList.remove('glass');
+                btn.classList.add('neon-border');
+
+                // Filter items
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.classList.contains(filter)) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Active navigation link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        let mobileMenuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuOpen = !mobileMenuOpen;
+            // Mobile menu implementation would go here
+        });
+
+        // Form submission
+        document.querySelectorAll('form').forEach(f => {
+          f.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Add form submission logic here
+            alert('Thank you for your message! I will get back to you soon.');
+            e.target.reset();
+          });
+        });
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('#home');
+            if (parallax) {
+                parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+
+    <!-- ========== FIREBASE REALTIME LIKE + COMMENT (MERGED) ========== -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+
+    <script>
+      // Firebase config (provided by you)
+      const firebaseConfig = {
+        apiKey: "AIzaSyA2UGPMVk4auL0NaIi6mdpuoEeccbvCUkA",
+        authDomain: "my-projectps-b9ea4.firebaseapp.com",
+        databaseURL: "https://my-projectps-b9ea4-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "my-projectps-b9ea4",
+        storageBucket: "my-projectps-b9ea4.firebasestorage.app",
+        messagingSenderId: "7824979454",
+        appId: "1:7824979454:web:ad0700832a9461e3943caf",
+        measurementId: "G-E14DCB3FLF"
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.database();
+
+      // Function to escape user input (prevent XSS)
+      function escapeHtml(str) {
+        if (!str) return '';
+        return String(str)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#039;');
+      }
+
+      // Setup realtime UI for each blog card inside #blog
+      (function setupRealtimeBlog() {
+        const blogSection = document.getElementById('blog');
+        if (!blogSection) {
+          console.warn('Blog section not found.');
+          return;
+        }
+
+        // select blog cards (.glass inside #blog that have an h3 title)
+        const blogCards = Array.from(blogSection.querySelectorAll('.glass')).filter(c => c.querySelector('h3'));
+
+        blogCards.forEach((card) => {
+          const titleEl = card.querySelector('h3');
+          const titleText = titleEl ? titleEl.textContent.trim() : 'post';
+          const slug = titleText.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9\-]/g,'') || ('post-' + Math.random().toString(36).substr(2,6));
+          const postId = slug;
+
+          card.setAttribute('data-post-id', postId);
+
+          // inject controls area (appended at the end of card)
+          const controls = document.createElement('div');
+          controls.className = 'mt-4 border-t border-cyan-400/10 pt-4';
+          controls.innerHTML = `
+            <div style="display:flex;align-items:center;gap:12px;">
+              <button class="live-like-btn px-3 py-2 rounded-full neon-border" style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+                <i class="far fa-heart"></i> <span class="like-count">0</span>
+              </button>
+              <div style="flex:1">
+                <form class="live-comment-form" style="display:flex;gap:8px;align-items:center;">
+                  <input name="name" placeholder="Name" required class="comment-name glass px-3 py-2 rounded-lg bg-transparent border border-cyan-400/30 focus:border-cyan-400" style="flex:0 0 120px;">
+                  <input name="text" placeholder="Add a comment..." required class="comment-text glass px-3 py-2 rounded-lg bg-transparent border border-cyan-400/30 focus:border-cyan-400" style="flex:1;">
+                  <button type="submit" class="px-3 py-2 neon-border rounded-lg">Send</button>
+                </form>
+              </div>
+            </div>
+            <div class="live-comments-list mt-3" style="max-height:180px;overflow:auto;"></div>
+          `;
+          card.appendChild(controls);
+
+          // Database refs
+          const likesRef = db.ref('posts/' + postId + '/likes');
+          const commentsRef = db.ref('posts/' + postId + '/comments');
+
+          // Likes: realtime listener
+          const likeCountEl = card.querySelector('.like-count');
+          likesRef.on('value', snapshot => {
+            const val = snapshot.val();
+            likeCountEl.textContent = (typeof val === 'number') ? val : (val ? val : 0);
+          });
+
+          // Like button: atomic increment via transaction
+          const likeBtn = card.querySelector('.live-like-btn');
+          likeBtn.addEventListener('click', () => {
+            likeBtn.disabled = true;
+            likesRef.transaction(current => (current || 0) + 1, (err, committed) => {
+              likeBtn.disabled = false;
+              if (err) console.error('Like transaction error:', err);
+            });
+          });
+
+          // Comments: render child_added
+          const commentsListEl = card.querySelector('.live-comments-list');
+          commentsRef.limitToLast(100).on('child_added', snap => {
+            const data = snap.val();
+            if (!data) return;
+            const item = document.createElement('div');
+            item.className = 'p-2 rounded-md mb-2 glass';
+            item.innerHTML = `<div style="font-weight:600;color:#7ef3ff">${escapeHtml(data.name || 'Anonymous')}</div>
+                              <div style="color:#cfefff">${escapeHtml(data.text)}</div>
+                              <div style="font-size:11px;color:#8aa7b0;margin-top:4px">${new Date(data.ts||Date.now()).toLocaleString()}</div>`;
+            commentsListEl.appendChild(item);
+            commentsListEl.scrollTop = commentsListEl.scrollHeight;
+          });
+
+          // Comment form submit
+          const commentForm = card.querySelector('.live-comment-form');
+          commentForm.addEventListener('submit', (ev) => {
+            ev.preventDefault();
+            const nameInput = commentForm.querySelector('.comment-name');
+            const textInput = commentForm.querySelector('.comment-text');
+            const name = (nameInput.value || '').trim() || 'Anonymous';
+            const text = (textInput.value || '').trim();
+            if (!text) return;
+            commentsRef.push({
+              name,
+              text,
+              ts: Date.now()
+            }).then(() => {
+              textInput.value = '';
+            }).catch(err => {
+              console.error('Error posting comment', err);
+              alert('Error posting comment');
+            });
+          });
+
+        });
+      })();
+
+      // Optional: Uncomment to clear demo data (use carefully)
+      // db.ref('posts').remove();
+    </script>
+</body>
+</html>
